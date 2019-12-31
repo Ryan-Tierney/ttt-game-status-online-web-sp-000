@@ -17,17 +17,17 @@ WIN_COMBINATIONS = [
   [2,4,6]]
 
 
-
 def won?(board)
-  WIN_COMBINATIONS.each do |win_combo|
-    if check_win_combination?(board, 'X', win_combo)
-      return win_combo
-    elsif check_win_combination?(board, 'O', win_combo)
-      return win_combo
-    else
+winner = []
+empty_board = board.all? {|x| x == " "}
+WIN_COMBINATIONS.each do |sub_array|
+    if empty_board || full?(board)
       return false
+    elsif sub_array.all? { |value| board[value] =="X" } || sub_array.all? { |value| board[value] =="O" }
+      winner = sub_array
     end
   end
+  winner
 end
 
 
