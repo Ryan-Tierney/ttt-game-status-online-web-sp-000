@@ -15,7 +15,7 @@ WIN_COMBINATIONS = [
   [2,4,6]]
 
 
-#HAS ANYONE WON? return false if no. return win_combo if yes
+
 def won?(board)
   WIN_COMBINATIONS.each do |win_combo|
     #check for player 1 win
@@ -30,14 +30,14 @@ def won?(board)
   end
 end
 
-#CHECK WINNING COMBOS
+
 def check_win_combination?(board, player, win_combo)
   win_combo.all? do |position|
     board[position] == player
   end
 end
 
-#IS BOARD FULL? 
+
 def full?(board)
   if board.include?(' ') || board.include?('')
     return false
@@ -46,14 +46,14 @@ else
   end
 end
 
-#IS THERE A DRAW?
+
 def draw?(board)
   if !won?(board) && full?(board)
     return true
   end
 end
 
-#HAS SOMETHING HAPPENED?
+
 def over?(board)
   puts 'is it over?'
   if won?(board) || draw?(board) || full?(board)
@@ -64,7 +64,7 @@ def over?(board)
   end
 end
 
-#WHO WON?
+
 def winner(board)
   if !won?(board)
     return nil
